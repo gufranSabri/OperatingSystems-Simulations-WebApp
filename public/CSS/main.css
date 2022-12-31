@@ -140,6 +140,12 @@ button{
     border-top: 1px solid rgb(177, 173, 173);
     color: gray;
 }
+table, th, tr, td{
+    box-sizing: border-box;
+    padding: 10px;
+}
+td{text-align: center;}
+tr:nth-child(even) {background-color: #ff704d;}
 @media (max-width:900px){
     #header{flex-direction: column;}
     #header img{

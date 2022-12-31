@@ -16,6 +16,7 @@ html
         script(src='/JS/pageReplacement.js')
         script(src='/JS/bankers.js')
         script(src='/JS/diskScheduling.js')
+        script(src='/JS/storageAllocation.js')
 
         title OSLearn
     script.
@@ -23,9 +24,10 @@ html
         $(document).ready(function(){
             $("#js").click(function(){
                 $(this).css("text-decoration","underline")
-                $("#pr,#ba,#ds").css("text-decoration","none")
-                $("#pri,#dsi,#bi,#qd,#canvas").hide()
+                $("#pr,#ba,#ds,#sa").css("text-decoration","none")
+                $("#pri,#dsi,#bi,#qd,#canvas, #sai").hide()
                 $("#jsi, #scrollableDiagramOutput").show()
+                $("#scrollableTextOutput").css("height","250px")
 
                 currAlgo="js"
 
@@ -34,9 +36,10 @@ html
             })
             $("#pr").click(function(){
                 $(this).css("text-decoration","underline")
-                $("#js,#ds,#ba").css("text-decoration","none")
-                $("#jsi, #bi, #dsi, #canvas").hide()
+                $("#js,#ds,#ba,#sa").css("text-decoration","none")
+                $("#jsi, #bi, #dsi, #sai, #canvas").hide()
                 $("#pri, #scrollableDiagramOutput").show()
+                $("#scrollableTextOutput").css("height","250px")
 
                 currAlgo="pr"
 
@@ -45,9 +48,10 @@ html
             })
             $("#ba").click(function(){
                 $(this).css("text-decoration","underline")
-                $("#pr,#js,#ds").css("text-decoration","none")
-                $("#pri, #jsi, #dsi, #canvas").hide()
+                $("#pr,#js,#ds,#sa").css("text-decoration","none")
+                $("#pri, #jsi, #dsi, #sai, #canvas").hide()
                 $("#bi, #scrollableDiagramOutput").show()
+                $("#scrollableTextOutput").css("height","250px")
 
                 currAlgo="ba"
 
@@ -56,8 +60,9 @@ html
             })
             $("#ds").click(function(){
                 $(this).css("text-decoration","underline")
-                $("#pr,#js,#ba").css("text-decoration","none")
-                $("#pri, #jsi, #bi, #scrollableDiagramOutput").hide()
+                $("#pr,#js,#ba,#sa").css("text-decoration","none")
+                $("#pri, #jsi, #bi, #sai, #scrollableDiagramOutput").hide()
+                $("#scrollableTextOutput").css("height","250px")
                 $("#dsi, #canvas").show()
                 doCanvas(300,[])
 
@@ -65,6 +70,18 @@ html
                 $("#scrollableTextOutput").html("")
                 $("#scrollableDiagramOutput").html("")
             })
+            $("#sa").click(function(){
+                $(this).css("text-decoration","underline")
+                $("#pr,#js,#ba,#ds").css("text-decoration","none")
+                $("#pri, #jsi, #bi, #dsi, #scrollableDiagramOutput, #canvas").hide()
+                $("#scrollableTextOutput").css("height","380px")
+                $("#sai").show()
+
+                currAlgo="sa"
+                $("#scrollableTextOutput").html("")
+                $("#scrollableDiagramOutput").html("")
+            })
+
             $("#jss").on("change", function(){
                 if($("#jss").val()=="rr")$("#qd").show()
                 else $("#qd").hide()
@@ -90,6 +107,7 @@ html
                     }
                     if(currAlgo=="ba")bankers()
                     if(currAlgo=="ds")diskScheduling()
+                    if(currAlgo=="sa")makeStorageAllocationTable()
                 }
                 catch(e){
                     alert("There was an error. Will reload page now")
@@ -106,6 +124,7 @@ html
                 a#pr(href='#') Page Replacement
                 a#ba(href='#') Banker&apos;s Algorithm
                 a#ds(href='#') Disk Scheduling
+                a#sa(href='#') Dynamic Storage Allocation
         #body
             #input
                 h1 Input
@@ -310,6 +329,15 @@ html
                         span Head Pointer
                         br
                         input#dsh(type='text' min="0", max="300" value="53")
+                    #sai
+                        span Holes
+                        br
+                        input#saih(type='text' placeholder='Hole sizes in KB, Eg: 1 2 3')
+                        br
+                        br
+                        span Processes
+                        br
+                        input#saip(type='text' placeholder='Process sizes in KB, Eg: 1 2 3')
                     button#go GO
             #output
                 h1 Output
