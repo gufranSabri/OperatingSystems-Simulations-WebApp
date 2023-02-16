@@ -132,6 +132,9 @@ function worstFit(){
 }
 
 function getInputForSA(){
+    $("#saip").val($("#saip").val().trim().replace("   "," ").replace("  "," "))
+    $("#saih").val($("#saih").val().trim().replace("   "," ").replace("  "," "))
+
     let holes = $("#saih").val().split(" ").map(function(item){return parseInt(item);})
     let processes = $("#saip").val().split(" ").map(function(item){return parseInt(item);})
     // let holes = [100, 500, 200, 300, 600]

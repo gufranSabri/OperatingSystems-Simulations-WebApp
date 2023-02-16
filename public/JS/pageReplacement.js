@@ -141,6 +141,8 @@ function fifo(){
 }
 
 function getInputForPR(){
+    $("#rs").val($("#rs").val().trim().replace("   "," ").replace("  "," "))
+
     let rs = $("#rs").val().split(" ")
     let frameNum = $("#numFrames").val()
     

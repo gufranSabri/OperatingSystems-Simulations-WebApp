@@ -222,8 +222,10 @@ function doCanvas(qLimit, pointPairs){
 }
 
 function getInputForDS(){
+    $("#dsq").val($("#dsq").val().trim().replace("   "," ").replace("  "," "))
+
     let algo = $("#dss").val()
-    let qLimit =  parseInt($("#dsn").val())
+    let qLimit =  parseInt($("#dsn").val().trim())
     let q = $("#dsq").val().split(" ").map(function(item){return parseInt(item);})
     // let q = "98 183 37 122 14 124 65 67".split(" ").map(function(item){return parseInt(item);})
     let headPointer = parseInt($("#dsh").val())

@@ -73,8 +73,12 @@ function getInputForBankers(){
     let need = []
     let numP = parseInt($("#numProcesses").val())
 
+    $("#av").val($("#av").val().trim().replace( "  "," ").replace("  "," "))
+
     available.push($("#av").val().split(" ").map(function(item){return parseInt(item);}))
     for (let i = 1; i <=numP; i++) {
+        $("#P" + i + "ar").val($("#P" + i + "ar").val().trim().replace("   "," ").replace("  "," "))
+        $("#P" + i + "ar").val($("#P" + i + "mr").val().trim().replace("   "," ").replace("  "," "))
         allocations.push($("#P" + i + "ar").val().split(" ").map(function(item){return parseInt(item);}))
         max.push($("#P" + i + "mr").val().split(" ").map(function(item){return parseInt(item);}))
     }

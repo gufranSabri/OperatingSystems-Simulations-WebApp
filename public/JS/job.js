@@ -166,6 +166,9 @@ function printGanttChart(ganttChart){
     $("#scrollableDiagramOutput").html(res)
 }
 function getInputForJobs(){
+    $("#at").val($("#at").val().trim().replace("   "," ").replace("  "," "))
+    $("#bt").val($("#bt").val().trim().replace("   "," ").replace("  "," "))
+
     let res = []
     let aTimes = $("#at").val().split(" ")
     let bTimes = $("#bt").val().split(" ")
