@@ -85,7 +85,7 @@ function bestFit(){
         if(processes[i]==undefined)continue
 
         let bestIndex = -1, smallestGap = Number.MAX_VALUE
-        for (let j = 1; j < holes.length; j++) {
+        for (let j = 0; j < holes.length; j++) {
             if(Array.isArray(holes[j])) continue
             if(smallestGap>(holes[j]-processes[i])&&(holes[j]-processes[i]>=0)){
                 smallestGap = holes[j]-processes[i]
@@ -112,7 +112,7 @@ function worstFit(){
         if(processes[i]==undefined)continue
 
         let bestIndex = -1, largestGap = Number.MIN_VALUE
-        for (let j = 1; j < holes.length; j++) {
+        for (let j = 0; j < holes.length; j++) {
             if(Array.isArray(holes[j])) continue
             if(largestGap<(holes[j]-processes[i])&&(holes[j]-processes[i]>=0)){
                 largestGap = holes[j]-processes[i]
@@ -139,6 +139,9 @@ function getInputForSA(){
     let processes = $("#saip").val().split(" ").map(function(item){return parseInt(item);})
     // let holes = [100, 500, 200, 300, 600]
     // let processes = [212, 417, 112, 426]
+
+    console.log(holes)
+    console.log(processes)
     
     return [holes, processes]
 }
