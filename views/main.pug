@@ -108,7 +108,7 @@ html
                     if(currAlgo=="ba")bankers()
                     if(currAlgo=="ds")diskScheduling()
                     if(currAlgo=="sa")makeStorageAllocationTable()
-                }
+                }   
                 catch(e){
                     alert("There was an error. Will reload page now")
                     location.reload();
@@ -166,7 +166,7 @@ html
                         br
                         span Number of Frames
                         br
-                        input#numFrames(type='number' min='3' max='5' onkeydown='return false' placeholder='No. of frames' value='3')
+                        input#numFrames(type='number' min='1' onkeydown='return false' placeholder='No. of frames' value='3')
                         br
                         br
                         span Reference String

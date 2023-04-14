@@ -88,8 +88,7 @@ function lru(){
         if(!frames.includes(undefined)) {
             let minDataIndex = Number.MAX_SAFE_INTEGER
             for (let j = 0; j < frames.length; j++) {
-    context.fillStyle=CANVAS_COLOR;
-    context.fillRect(0,0,canvas.width,canvas.height);                if(minDataIndex>frames[j].dataIndex)nextIndex = j
+                if(minDataIndex>frames[j].dataIndex)nextIndex = j
                 minDataIndex = Math.min(minDataIndex, frames[j].dataIndex)
             }
         }
