@@ -139,9 +139,6 @@ function getInputForSA(){
     let processes = $("#saip").val().split(" ").map(function(item){return parseInt(item);})
     // let holes = [100, 500, 200, 300, 600]
     // let processes = [212, 417, 112, 426]
-
-    console.log(holes)
-    console.log(processes)
     
     return [holes, processes]
 }
